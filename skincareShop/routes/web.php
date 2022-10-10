@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Customer;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,12 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home',[
 
-        "SkinCare" => [
-            [
-                'logo' => 'bi-emoji-smile',
-                'merk' => 'Scarlett',
-                'harga' => '100000'
-            ]
-        ]
+       'customers' => Customer::all()
     ]);
-});
+})->name('home');

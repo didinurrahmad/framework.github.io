@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Face;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,16 +16,24 @@ class FaceSeeder extends Seeder
     public function run()
     {
         //
-        $face = [
+        $faces = [
             [
-                'id' => '1',
+                
                 'merk' => 'Scarlett',
                 'harga' => 45000,
             ],
+            [
+          
+                'merk' => 'MS Glow',
+                'harga' => 100000,
+            ],
            
         ];
-        foreach($face as $fc){
-            \App\Models\face::firstOrCreate($fc);
+        foreach($faces as $face){
+            Face::create([
+                'merk' => $face["merk"],
+                'harga' => $face["harga"],
+            ]);
         }
     }
 }
