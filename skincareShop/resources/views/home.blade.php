@@ -16,6 +16,7 @@ Ini Halaman Home
                 <th scope="col">No HandPhone</th>
                 <th scope="col">SkinCare Face</th>
                 <th scope="col">Harga</th>
+                <th scope="col">action</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,17 @@ Ini Halaman Home
                 <td>{{ $customer->noHP }}</td>
                 <td>{{ $customer->face->merk }}</td>
                 <td>{{ $customer->face->harga }}</td>
+
+                <td>
+
+                    <a href="#" class=""><Button class="btn btn-success mb-3">Lihat</Button></a>
+                    <a href="#" class=""><Button class="btn btn-warning mb-3">Edit</Button></a>
+                    <form action="" method="post" style="display:inline" onsubmit="confirm('apakah anda yakin ingin menghapus mahasiswa ini?')">
+                    @csrf
+                    @method('delete')
+                    <Button type="submit" class="btn btn-danger mb-3">Delete</Button>
+                </form>
+                </td>
             </tr>
             @endforeach
         </tbody>
