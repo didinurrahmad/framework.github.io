@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerController;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Route;
 
@@ -36,3 +37,9 @@ Route::get('/login', [AuthController::class,
 'loginView'])->name("login");
 
 Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
+
+Route::get('/customer/create', [CustomerController::class, 'create'])->name('customer.create');
+
+Route::post('/customer', [CustomerController::class, 'store'])->name('customer.store')->middleware('auth');

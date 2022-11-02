@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('alamat');
             $table->string('noHP')->unique();
-            $table->foreignId('face_id');
+            $table->foreignId('face_id')->references('id')->on('faces');
             $table->timestamps();
         });
     }
